@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: >
+      Raw operational data from the Jaffle Shop e-commerce application,
+      loaded into BigQuery via bq load. One row per record as it exists
+      in the source system; no transformations applied.
+    database: gtm-reporting-sandbox
+    schema: raw
+    tables:
+      - name: customers
+        description: "One row per customer. `id` is the primary key, referenced by orders.user_id."
+
+      - name: orders
+        description: "One row per order. `user_id` is a foreign key to customers.id. `status` tracks fulfilment state."
+
+      - name: payments
+        description: "One row per payment. `order_id` is a foreign key to orders.id; an order may have multiple payments. `amount` is stored in cents as an integer."

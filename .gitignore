@@ -2,4 +2,9 @@
 .env
 venv/
 *.duckdb
+logs/.DS_Store
+.DS_Store
 logs/
+target/
+dbt_packages/
+dbt_internal_packages/
