@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: int_order_payments
+    description: >
+      One row per order_id.
+      total_payment contains amount_usd summed by order_id from stg_payments
+      Row count equals stg_orders row count, because every order has at least one payment and the aggregation collapses multiple payments per order into a single row."
+

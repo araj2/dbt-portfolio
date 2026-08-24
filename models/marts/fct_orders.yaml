@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: >
+      One row per order_id.
+      Row count equals stg_orders row count because both int_order_payments and stg_orders are unique on order_id,
+      and the LEFT JOIN retains every order regardless of payment match.
+            
+    columns:
+      - name: order_id
+        description: uniquer identifier for orders
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: id of the customer who placed the order
+        data_tests:
+          - not_null
+      - name: order_date
+        description: date the order was placed
+        data_tests:
+          - not_null
+      - name: order_status
+        description: status of the order
+        data_tests:
+          - not_null
+      - name: total_payment
+        description: amount_usd summed by order_id
+        data_tests:
+          - not_null
+
+
+
