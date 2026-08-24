@@ -21,8 +21,3 @@ models:
         description: customer's last name
         data_tests:
           - not_null
-
-
-
-select customer_id, first_name, last_name 
-from {{ref('stg_customers')}}
