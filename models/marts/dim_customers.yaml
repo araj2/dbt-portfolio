@@ -14,14 +14,15 @@ models:
           - unique
           - not_null
       - name: first_name
-        description: first name of the customer who placed the order
+        description: customer's first name
         data_tests:
           - not_null
       - name: last_name
-        description: last name of the customer who placed the order
+        description: customer's last name
         data_tests:
           - not_null
 
 
 
-
+select customer_id, first_name, last_name 
+from {{ref('stg_customers')}}

@@ -30,5 +30,7 @@ models:
         data_tests:
           - not_null
 
-
-
+select ord.order_id,ord.order_date,customer_id,order_status, COALESCE(total_payments,0)
+FROM {{ref ('stg_orders')}} as ord
+LEFT JOIN {{ref ('int_order_payments')}} as pay
+ON ord.order_id = pay.order_id
